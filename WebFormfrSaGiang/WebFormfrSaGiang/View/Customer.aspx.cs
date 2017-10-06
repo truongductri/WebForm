@@ -31,9 +31,9 @@ namespace WebFormfrSaGiang.View
             ddlCustomerStatus.DataBind();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
-
+            Load_grvCustomer(customerNo, ddlCustomerStatus.SelectedValue, ddlCustomer.SelectedValue);
         }
 
         public void Load_grvCustomer(string KeySearch, string CustomerStatus, string CustomerNo)

@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Customer.aspx.cs" Inherits="WebFormfrSaGiang.View.Customer" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-default">
@@ -26,7 +24,7 @@
                                     <i class="fa fa-search"></i>
                                 </button>
                                 
-                                <button class="btn btn-default" type="button">
+                                <button class="btn btn-default" type="button" onclick="document.location.href='CustomerCrt.aspx'";>
                                     <i class="fa fa-plus"></i>
                                 </button>
                             </span>
