@@ -259,6 +259,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="View\Customer.aspx" />
     <Content Include="View\CustomerCrt.aspx" />
+    <Content Include="View\WorkDiary.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -381,8 +382,11 @@
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="AppCode\BLL\CustomerBLL.cs" />
+    <Compile Include="AppCode\BLL\UserAccountBLL.cs" />
+    <Compile Include="AppCode\BLL\WorkDiaryDLL.cs" />
     <Compile Include="AppCode\DAL\CustomerInfo.cs" />
     <Compile Include="AppCode\DAL\DBConnection.cs" />
+    <Compile Include="AppCode\DAL\UserAccountInfo.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -448,6 +452,13 @@
     </Compile>
     <Compile Include="View\CustomerCrt.aspx.designer.cs">
       <DependentUpon>CustomerCrt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\WorkDiary.aspx.cs">
+      <DependentUpon>WorkDiary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\WorkDiary.aspx.designer.cs">
+      <DependentUpon>WorkDiary.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

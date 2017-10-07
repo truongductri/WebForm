@@ -9,11 +9,11 @@
                         <h3>Khách hàng</h3>
                     </div>
                     <div class="col-sm-3" style="margin-top: 17px">
-                        <asp:DropDownList ID="ddlCustomer" runat="server" CssClass="form-control" >
+                        <asp:DropDownList ID="ddlCustomer" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlCustomer_SelectedIndexChanged">
                         </asp:DropDownList>
                     </div>
                     <div class="col-sm-2" style="margin-top: 17px">
-                        <asp:DropDownList ID="ddlCustomerStatus" runat="server" CssClass="form-control">
+                        <asp:DropDownList ID="ddlCustomerStatus" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlCustomerStatus_SelectedIndexChanged">
                         </asp:DropDownList>
                     </div>
                     <div class="col-sm-4" style="margin-top: 17px">

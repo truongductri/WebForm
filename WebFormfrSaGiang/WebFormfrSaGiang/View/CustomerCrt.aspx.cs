@@ -13,16 +13,27 @@ namespace WebFormfrSaGiang.View
 {
     public partial class CustomerCrt : System.Web.UI.Page
     {
-        public string CustomerID;
-         //dt = new DataTable();
+        public string CustomerID, UserID;
+        //dt = new DataTable();
+
         CustomerBLL db = new CustomerBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Load_CustomerBranch();
-            Load_CustomerStatus();
-            Load_Director();
-            Load_CustomerProvider();
-
+            
+            if (!IsPostBack)
+            {
+                Load_CustomerBranch();
+                Load_CustomerStatus();
+                Load_Director();
+                Load_CustomerProvider();
+            }
+            //if (!string.IsNullOrEmpty(CusID))
+            //{
+            //    if (!IsPostBack)
+            //    {
+            //        Load_Edit(Convert.ToInt32(CusID));
+            //    }
+            //}
 
         }
         public void Load_CustomerBranch()
@@ -63,7 +74,7 @@ namespace WebFormfrSaGiang.View
             ddlCustomerProvider.DataTextField = "StatusName";
             ddlCustomerProvider.DataValueField = "StatusID";
             ddlCustomerProvider.DataBind();
-           // ddlCustomerProvider.SelectedIndex = 0;
+            // ddlCustomerProvider.SelectedIndex = 0;
         }
         //Node delete file >>> ButtonLink
         protected void btnDeleteFile_Click(object sender, EventArgs e)
@@ -94,8 +105,83 @@ namespace WebFormfrSaGiang.View
             custom.CustomerNotes = txtCustomerNotes.Value;
             custom.BranchID = Convert.ToInt32(ddlBranch.SelectedValue);
             custom.CustomerPresent = chkCustomerPresent.Checked.ToString();
-            custom.CustomerPresent = chkCustomerDemo.Checked.ToString();
-            custom.CustomerPresent = chkCustomerQuotes.Checked.ToString();
+            custom.CustomerDemo = chkCustomerDemo.Checked.ToString();
+            custom.CustomerContract = chkCustomerContract.Checked.ToString();
+            custom.CustomerQuotes = chkCustomerQuotes.Checked.ToString();
+            custom.CustomerSaleDirector = Convert.ToInt32(ddlSaleDirector.SelectedValue);// customerUserAccount3
+            if (Convert.ToInt32(ddlDirector1.SelectedValue) != 0)
+            {
+                custom.SaleMan1 = Convert.ToInt32(ddlDirector1.SelectedValue);
+            }
+            if (Convert.ToInt32(ddlDirector2.SelectedValue) != 0)
+            {
+                custom.SaleMan2 = Convert.ToInt32(ddlDirector2.SelectedValue);
+            }
+            custom.CustomerStatus = Convert.ToInt32(ddlCustomerStatus.SelectedValue);
+            custom.CustomerProvider = Convert.ToInt32(ddlCustomerProvider.SelectedValue);
+
+            //Nếu như có biến customerID thì lấy tk IDcustom, userUpdate, LastUpdate gán cho tk custom rồi update tk custom vào một biến tạm tmp
+            //Ktra nếu tồn tại tmp thì kiểm tra file post>> lấy ra đường dãn của file post, đặt path file với một định dạng.. lưu lại post file>>> respone direct về index
+            //Nếu tmp không tồn tại thì alert tmp
+            DateTime now = new UserAccountBLL().GetDateTimeNow();
+
+            if (!string.IsNullOrEmpty(CustomerID))
+            {
+                custom.CustomerID = Convert.ToInt32(CustomerID);
+                custom.CustomerUserUpdate =1 /*Convert.ToInt32(UserID)*/;//customerUserAcount1
+                custom.CustomerLastUpdate = now;//customerUserAcount2
+                string tmp = db.UpdateCustomer(custom);
+                if (string.IsNullOrEmpty(tmp))
+                {
+                    if (AttachFile.PostedFile != null)
+                    {
+                        if (!string.IsNullOrEmpty(Path.GetFileName(AttachFile.PostedFile.FileName)))
+                        {
+                            string filePath = custom.CustomerNo + "_" + UserID + "_" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + Path.GetFileName(AttachFile.PostedFile.FileName);
+                            if (db.UpdateAttachFile(filePath, CustomerID))
+                            {
+                                AttachFile.PostedFile.SaveAs(Server.MapPath("~/Uploads/") + filePath);
+                            }
+                        }
+                    }
+                   // Response.Redirect("#" + CustomerID);
+                }
+                else
+                {
+                    Response.Write("<script LANGUAGE='JavaScript' >alert('" + tmp + "')</script>");
+                }
+            }
+            else
+            {
+                custom.CustomerUserUpdate = 1;
+                custom.CustomerUserCreate = 1;
+                custom.CustomerDateCreate = now;
+                custom.CustomerLastUpdate = now;
+                if (AttachFile.PostedFile != null)
+                {
+                    if (!string.IsNullOrEmpty(Path.GetFileName(AttachFile.PostedFile.FileName)))
+                    {
+                        custom.AttachFile = custom.CustomerNo + "_" + UserID + "_" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + Path.GetFileName(AttachFile.PostedFile.FileName);
+                    }
+                }
+                string tmp = db.InsertCustomer(custom);
+                if (!string.IsNullOrEmpty(tmp))
+                {
+                    if (AttachFile.PostedFile != null)
+                    {
+                        if (!string.IsNullOrEmpty(Path.GetFileName(AttachFile.PostedFile.FileName)))
+                        {
+                            AttachFile.PostedFile.SaveAs(Server.MapPath("~/Uploads/") + custom.AttachFile);
+                        }
+                    }
+                    Response.Write("<script LANGUAGE='JavaScript' >alert('" + tmp + "')</script>");
+                    txtCustomerNo.Value = "";
+                }
+                else
+                {
+                    Response.Write("<script LANGUAGE='JavaScript' >alert('Thêm thất bại.')</script>");
+                }
+            }
 
         }
     }
