@@ -201,7 +201,9 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Calendar.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Contacter.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome\css\font-awesome.css" />
@@ -257,9 +259,9 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="View\Customer.aspx" />
-    <Content Include="View\CustomerCrt.aspx" />
-    <Content Include="View\WorkDiary.aspx" />
+    <Content Include="Customer.aspx" />
+    <Content Include="CustomerCrt.aspx" />
+    <Content Include="WorkDiary.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -381,9 +383,11 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AppCode\BLL\ContactBLL.cs" />
     <Compile Include="AppCode\BLL\CustomerBLL.cs" />
     <Compile Include="AppCode\BLL\UserAccountBLL.cs" />
     <Compile Include="AppCode\BLL\WorkDiaryDLL.cs" />
+    <Compile Include="AppCode\DAL\ContactInfo.cs" />
     <Compile Include="AppCode\DAL\CustomerInfo.cs" />
     <Compile Include="AppCode\DAL\DBConnection.cs" />
     <Compile Include="AppCode\DAL\UserAccountInfo.cs" />
@@ -398,12 +402,26 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Calendar.aspx.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calendar.aspx.designer.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contacter.aspx.cs">
+      <DependentUpon>Contacter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contacter.aspx.designer.cs">
+      <DependentUpon>Contacter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -439,25 +457,25 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer.aspx.cs">
+    <Compile Include="Customer.aspx.cs">
       <DependentUpon>Customer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Customer.aspx.designer.cs">
+    <Compile Include="Customer.aspx.designer.cs">
       <DependentUpon>Customer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\CustomerCrt.aspx.cs">
+    <Compile Include="CustomerCrt.aspx.cs">
       <DependentUpon>CustomerCrt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\CustomerCrt.aspx.designer.cs">
+    <Compile Include="CustomerCrt.aspx.designer.cs">
       <DependentUpon>CustomerCrt.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\WorkDiary.aspx.cs">
+    <Compile Include="WorkDiary.aspx.cs">
       <DependentUpon>WorkDiary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\WorkDiary.aspx.designer.cs">
+    <Compile Include="WorkDiary.aspx.designer.cs">
       <DependentUpon>WorkDiary.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -465,6 +483,7 @@
     <Folder Include="AppCode\Common\" />
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

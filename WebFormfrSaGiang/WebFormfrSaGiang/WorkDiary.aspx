@@ -95,7 +95,7 @@
                             <PagerStyle CssClass="GridPager" />
                         </asp:GridView>
                     </div>
-                    <button id="btnExportExcel" class="btn btn-primary" type="button" runat="server" onserverclick="btnExportExcel_Click">
+                    <button id="btnExportExcel" class="btn btn-primary" type="button" runat="server">
                         Xuất Excel
                     </button>
                 </div>

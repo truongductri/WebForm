@@ -54,32 +54,32 @@
 
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" runat="server" href="#">Kinh Doanh <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="View/Customer.aspx">Khách hàng</a></li>
-                                <li><a href="View/WorkDiary.aspx">Nhật ký công việc</a></li>
-                                <li><a href="View/Contacter.aspx">Người Liên Hệ</a></li>
+                                <li><a href="Customer.aspx">Khách hàng</a></li>
+                                <li><a href="WorkDiary.aspx">Nhật ký công việc</a></li>
+                                <li><a href="Contacter.aspx">Người Liên Hệ</a></li>
                             </ul>
                         </li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sự Kiện<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="View/Event.aspx">Sự kiện</a></li>
-                                <li><a href="View/Project.aspx">Dự án</a></li>
+                                <li><a href="Event.aspx">Sự kiện</a></li>
+                                <li><a href="Project.aspx">Dự án</a></li>
                             </ul>
                         </li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" runat="server" href="#">Nhân Sự <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="View/Calendar.aspx">Lịch làm việc</a></li>
-                                <li><a href="View/Apartment.aspx">Phòng ban</a></li>
-                                <li><a href="View/Position.aspx">Chức vụ</a></li>
-                                <li><a href="View/Staff.aspx">Nhân viên</a></li>
+                                <li><a href="Calendar.aspx">Lịch làm việc</a></li>
+                                <li><a href="Apartment.aspx">Phòng ban</a></li>
+                                <li><a href="Position.aspx">Chức vụ</a></li>
+                                <li><a href="Staff.aspx">Nhân viên</a></li>
                             </ul>
                         </li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" runat="server" href="#">Báo Cáo<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="View/DebtGeneral.aspx">Tổng hợp công nợ phải thu</a></li>
-                                <li><a href="View/DebtDetail .aspx">Chi tiết công nợ phải thu</a></li>
-                                <li><a href="View/Delistua.aspx">Tình hình giao hàng</a></li>
-                                <li><a href="View/Inventory.aspx">Tồn kho</a></li>
-                                <li><a href="View/Inventage.aspx">Tuổi tồn kho</a></li>
+                                <li><a href="DebtGeneral.aspx">Tổng hợp công nợ phải thu</a></li>
+                                <li><a href="DebtDetail .aspx">Chi tiết công nợ phải thu</a></li>
+                                <li><a href="Delistua.aspx">Tình hình giao hàng</a></li>
+                                <li><a href="Inventory.aspx">Tồn kho</a></li>
+                                <li><a href="Inventage.aspx">Tuổi tồn kho</a></li>
                             </ul>
                         </li>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" runat="server" href="#">Quản Trị<span class="caret"></span></a>
